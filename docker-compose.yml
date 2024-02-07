@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - myvolume:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: test@123
+    networks:
+      - mynetwork
+    hostname: mongocontainer  # Corrected here
+  todoapp:
+    build: .
+    depends_on:
+      - mongodb
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+volumes:
+  myvolume:
