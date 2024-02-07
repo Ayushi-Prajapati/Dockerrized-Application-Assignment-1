@@ -52,4 +52,12 @@ In **MongoDB Compass** connect to your **Mongodb Server** by creating new connec
 3. From **MongoDB-Compass** the database you created copy the **Copy Connection String** and paste it to the app.js file in **mongoose.connect** function. It will connect your application to Mongodb database.
 4. Write **Dockerfile** and build it.
 5. Create container for your todo-app and while creating the container write `--network=mynetwork` so that both mongodb container and todo container are both in one network.
-6. Browse **localhost:3000** and your application is rendered and connected to the mongodb database.
+6. Browse [https://localhost:3000] and your application is rendered and connected to the mongodb database.
+
+### Create all above services through Docker Compose
+
+Create docker-compose.yml file for creating the services
+> `vim docker-compose.yml`
+
+Below command will build the docker-compose.yml file nd start the docker containers
+> `docker-compose up --build`
