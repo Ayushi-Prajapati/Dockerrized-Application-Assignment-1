@@ -2,6 +2,10 @@ version: '3.1'
 services:
   mongodb:
     image: mongo:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
     volumes:
       - myvolume:/data/db
     environment:
@@ -9,16 +13,23 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: test@123
     networks:
       - mynetwork
-    hostname: mongocontainer  # Corrected here
+    hostname: mongocontainer
   todoapp:
-    build: .
+    image: ayushi01304/nodeimg:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
     depends_on:
       - mongodb
     ports:
       - "3000:3000"
     networks:
       - mynetwork
+
 networks:
   mynetwork:
+
 volumes:
   myvolume:
+
