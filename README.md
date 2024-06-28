@@ -12,10 +12,10 @@ CSS
 The project uses express routes to post update and delete the data in the mongodb database and subsequently render results on the website for the user.
 
 Features:
-Add a new task
-Delete a tasks
-Update tasks as done
-Delete all the tasks
+1.Add a new task
+2.Delete a tasks
+3.Update tasks as done
+4.Delete all the tasks
 
 # Dockerized Multi-Service Application Deployment
 
